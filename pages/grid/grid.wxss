@@ -1,0 +1,35 @@
+/* pages/grid/grid.wxss */
+@import "/pages/rating/rating.wxss";
+.grid-wrapper{
+  display: inline-block;
+  margin-top: 20rpx;
+  /* align-items: center; */
+}
+.grid-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 200rpx;
+  margin-right: 20rpx;
+}
+.grid-content .poster{
+  width: 200rpx;
+  height: 300rpx;
+}
+.grid-content .title , .wish-count{
+  margin-top: 10rpx;
+  width: 200rpx;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  text-align: center;
+}
+.title{
+  font-size: 32rpx;
+  font-weight: 600;
+}
+.wish-count{
+  font-size: 28rpx;
+  font-weight: 300;
+  color: #d9d9d9;
+}

@@ -1,0 +1,12 @@
+<import src = "/pages/rating/rating.wxml" />
+<template name="grid">
+    <view class='grid-wrapper'>
+        <view class='grid-content'>
+            <image src='{{images.medium}}' class='poster'>
+            </image>
+            <text class='title'>{{title}}</text>
+            <template is ='rating' data= '{{rating}}'></template>
+            <text class='wish-count'>{{collect_count}}人想看</text>
+        </view>
+    </view>
+</template>

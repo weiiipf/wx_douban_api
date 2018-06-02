@@ -1,6 +1,13 @@
 {
   "pages":[
-    "pages/home/home"
+    
+    
+    "pages/home/home",
+    "pages/search/search",
+    "pages/grid/grid",
+    "pages/rating/rating",
+    "pages/more/more"
+    
   ],
   "window":{
     "backgroundTextStyle":"light",

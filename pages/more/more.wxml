@@ -1,0 +1,25 @@
+
+    <view class='more-header'>
+        <text class='title {{showIntheater ? "show":"normal"}}' bindtap='changeHandle' data-tab-id='intheater'>影院热映</text>
+        <text class='title {{showComingsoon  ? "show":"normal"}}' bindtap='changeHandle' data-tab-id='comingsoon'>即将上映</text>
+    </view>
+    <view class='more-lists'>
+        <scroll-view scroll-y class='movie-scroll' >
+        <block wx:for = "{{intheater.movies}}">
+            <view class='move-content'>
+                <image src='{{item.images.small}}'></image>
+                <view class='desc'>
+                    <text class='title'>{{item.title}}</text>
+                    <text class='dirs'>{{item.allDirs}}</text>
+                    <text class='casts'>{{item.allCasts}}</text>
+                    <text class='genres'>{{item.allGenres}}</text>
+                </view>
+            </view>
+        </block>
+        
+        </scroll-view>
+
+
+        
+    </view>
+

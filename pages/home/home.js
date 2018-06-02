@@ -1,66 +1,45 @@
-// pages/home/home.js
-Page({
+  var app = getApp();
+  Page({
+    data:{
+      inTheaters:[]
+    },
 
-  /**
-   * 页面的初始数据
-   */
-  data: {
-  
+    onLoad(option){
+      wx.showToast({
+        title: '请稍等',
+        icon :'loading',
+        duration:30000
+      })
+      var url = app.globalData.doubanBase + app.globalData.inTheater + '?start=0&count=10';
+      this.getMovieLists(url)
+
+    },
+  bindToSearch:function(){
+      wx.navigateTo({
+        url: '../search/search',
+      })
   },
+  getMovieLists(url){
+    wx.request({
+      url,
+      method: 'GET',
+      header: { 'content-type': 'json' },
+      success : res=>{
+        console.log(res)
+        this.setData({inTheaters:res.data.subjects})
+      },
+      fail(err){
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-  
+      },
+      complete() {
+        wx.hideToast()
+      }
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
+  bindToMore(e){
+    console.log(e)
+    wx.navigateTo({
+      url: '../more/more?typeId='+e.target.dataset.typeId,
+    })
   }
 })
